@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<style>
+    /* *{
+        width: 100%;
+        padding: 0px;
+    } */
+.card
+{
+    border:none;
+    width: 50%;
+    height: auto;
+    padding: 40px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    background:hsla(205,46%,50%,1) ;
+    background: linear-gradient(90deg, hsla(205,46%,30%,1) 0%, hsla(260,29%,36%,1)100%);
+}
+.card  h1,h6
+{
+    color:#fff;
+}
+label{
+    color:#fff;
+}
+</style>
+<script>
+    function validateform()
+    {
+        var firstname=document.forms["regform"]["first name"].value;
+        var lastname=document.forms["regform"]["last name"].value;
+        var fathername=document.forms["regform"]["father name"].value;
+        var mothername=document.forms["regform"]["mother name"].value;
+        var email=document.forms["regform"]["email id"].value;
+        var atposition=email.indexOf("@");
+        var dotposition=email.lastIndexOf(".");
+        var phnumber=document.forms["regform"]["mobile number"].value;
+        var gm=document.getElementById("male").value;
+        var gf=document.getElementById("female").value;
+        var address=document.forms["regform"]["address"].value;
+        var city=document.forms["regform"]["city"].value;
+        var pin=document.forms["regform"]["pincode"].value;
+        var state=document.forms["regform"]["state"].value;
+        var country=document.forms["regform"]["country"].value;
+        
+        if(firstname=="")
+        {
+            alert("enter a first name");
+            return false;
+        }
+        if(firstname.length<3)
+        {
+            alert("first name length of cahracter greater than 3 ");
+            return false;
+
+        }
+        if(!isNaN(firstname))
+        {
+            alert("first name should be in character");
+            return false;
+        }
+        if(lastname==""||lastname.length<3||!isNaN(lastname))
+        {
+            alert("enter a valid lastname");
+            return false;
+        }
+        if(fathername==""||fathername.length<3||!isNaN(fathername))
+        {
+            alert("enter a valid fathername");
+            return false;
+        }
+        if(mothername==""||mothername.length<3||!isNaN(mothername))
+        {
+            alert("enter a valid mothername");
+            return false;
+        }
+        if(atposition<1||dotposition<atposition+2||dotposition+2>=email.length)
+        {
+            alert("enter a valid email");
+            return false;
+        }
+        if(phnumber==""||phnumber<10||isNaN(phnumber))
+        {
+            alert("enter a valid number");
+        }
+        if((gm.checked==false)&&(gf.checked==false))
+        {
+            alert("select a gender");
+            return false;
+        }            
+        if(address=="")
+        {
+            alert("enter a address");
+            return false;
+        }
+        if(city=="")
+        {
+            alert("enter a city");
+        }
+        if(pin==""||isNaN(pin))
+        {
+            alert("enter a valid pincode");
+            return false;
+        }
+        if(state=="")
+        {
+            alert("enter your state");
+            return false;
+        }
+        if(country=="")
+        {
+            alert("enter a country");
+            return false;
+        }
+
+
+
+    }
+</script>
+</head>
+<body>
+    <div class="container-md">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+            <div class="text-center">FORM VALIDATION</div>
+
+    <form name="regform" onsubmit="validateform()"  >
+
+        <div class="mb-3">
+          <label for="fname" class="form-label">FIrst Name</label>
+          <input type="text" class="form-control" id="fname" name="first name">
+        </div>
+        <div class="mb-3">
+            <label for="lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lname" name="last name">
+          </div>
+          <div class="mb-3">
+            <label for="fname1" class="form-label">Father Name</label>
+            <input type="text" class="form-control" id="fnmae1" name="father name">
+          </div>
+          <div class="mb-3">
+            <label for="mname" class="form-label">Mother Name</label>
+            <input type="text" class="form-control" id="mnmae" name="mother name">
+          </div>
+          <div class="mb-3">
+          <label for="birthday">Birthday:</label>
+            <input type="date" id="birthday" name="birthday" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email id">
+            </div>
+            <div class="mb-3">
+                <label for="MOB" class="form-label">MOBILE NUMBER</label>
+                <input type="text" class="form-control" id="MOB" name="mobile number">
+              </div>
+<div class="mb-3 form-radio">
+          <input type="radio" name="gender" class="form-check-input" id="male">
+          <label class="form-check-label"  for="exampleCheck1">MALE</label>
+          
+        </div>
+        <div class="mb-3 form-radio">
+            <input type="radio" class="form-check-input" name="gender" id="female">
+          <label class="form-check-label" for="exampleCheck1">FEMALE</label>
+
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">ADDRESS</label>
+            <input type="text" class="form-control" id="address" name="Address">
+          </div>
+          <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" name="city">
+          </div>
+          <div class="mb-3">
+            <label for="pin" class="form-label">Pin Code</label>
+            <input type="text" class="form-control" id="pin" name="pincode">
+          </div>
+          <div class="mb-3">
+            <label for="state" class="form-label">State</label>
+            <input type="text" class="form-control" id="statee" name="state">
+          </div>
+          <div class="mb-3">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" class="form-control" id="country" name="country">
+          </div>
+          <!-- Hobbies -->
+          <div class="mb-3 form-radio">
+            <input type="radio" class="form-check-input" id="exampleCheck11">
+          <label class="form-check-label" for="exampleCheck11">Drawing</label>
+
+        </div>
+        <div class="mb-3 form-radio">
+            <input type="radio" class="form-check-input"  id="exampleCheck22">
+          <label class="form-check-label" for="exampleCheck22">Playing</label>
+
+        </div>
+        <div class="mb-3 form-radio">
+            <input type="radio" class="form-check-input"  id="exampleCheck33">
+          <label class="form-check-label" for="exampleCheck33">Singing</label>
+
+        </div>
+
+
+
+
+        <input type="submit" class="btn btn-primary" value="submit">
+      </form>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+</body>
+</html>
